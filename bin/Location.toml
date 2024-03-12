@@ -1,0 +1,88 @@
+#北京市
+[[LocationList]]
+Location = "Beijing"
+
+#天津市
+[[LocationList]]
+Location = "Tianjin"
+
+#上海市
+[[LocationList]]
+Location = "Shanghai"
+
+#重庆市
+[[LocationList]]
+Location = "Chongqing"
+
+#石家庄市
+[[LocationList]]
+Location = "Shijiazhuang"
+
+#太原市
+[[LocationList]]
+Location = "Taiyuan"
+
+#哈尔滨市
+[[LocationList]]
+Location = "Harbin"
+
+#长春市
+[[LocationList]]
+Location = "Changchun"
+
+#沈阳市
+[[LocationList]]
+Location = "Shenyang"
+
+#长沙市
+[[LocationList]]
+Location = "Changsha"
+
+#南昌市
+[[LocationList]]
+Location = "Nanchang"
+
+#南京市
+[[LocationList]]
+Location = "Nanjing"
+
+#合肥市
+[[LocationList]]
+Location = "Hefei"
+
+#杭州市
+[[LocationList]]
+Location = "Hangzhou"
+
+#福州市
+[[LocationList]]
+Location = "Fuzhou"
+
+#南宁市
+[[LocationList]]
+Location = "Nanning"
+
+#广州市
+[[LocationList]]
+Location = "Guangzhou"
+
+#成都市
+[[LocationList]]
+Location = "Chengdu"
+
+#西安市
+[[LocationList]]
+Location = "Xian"
+
+#郑州市
+[[LocationList]]
+Location = "Zhengzhou"
+
+#武汉市
+[[LocationList]]
+Location = "Wuhan"
+
+#济南市
+[[LocationList]]
+Location = "Jinan"
+

@@ -1,0 +1,6 @@
+key = "EB9XXXXLKXXXXX45XXXXXXX"
+content = "json"
+unitGroup = "metric"
+apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+excelPath = "WeatherResult.xlsx"
+sheetName = "" #工作表名称, 设置为空则自动使用日期命名

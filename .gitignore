@@ -1,0 +1,4 @@
+*.exe
+*.xlsx
+.idea/
+bin/Config.toml
