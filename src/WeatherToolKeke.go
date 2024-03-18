@@ -4,9 +4,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/BurntSushi/toml"
+	"github.com/eiannone/keyboard"
 	"io"
 	"net/http"
 	"os"
+	"syscall"
+	"unsafe"
 )
 
 type WeatherServer struct {
@@ -40,9 +43,17 @@ type WeatherData struct {
 }
 
 func main() {
+	kernel32 := syscall.NewLazyDLL("kernel32.dll")
+	setConsoleTitle := kernel32.NewProc("SetConsoleTitleW")
+	title := "小壳天气助手"
+	titlePtr, _ := syscall.UTF16PtrFromString(title)
+	_, _, _ = setConsoleTitle.Call(uintptr(unsafe.Pointer(titlePtr)))
+
 	fmt.Println("...小壳天气助手...")
+	fmt.Println("")
 	fmt.Println("...注意:使用的是免费版天气数据服务每天只能获取1000次数据...")
 	fmt.Println("可以在 https://www.visualcrossing.com/ 注册个新账号,替换Config.toml中的key,获取更多次数.")
+	fmt.Println("")
 
 	var locationList LocationList
 
@@ -93,7 +104,22 @@ func main() {
 
 	fmt.Printf("开始写入:%s\n", serverConfig.ExcelPath)
 	WriteExcel(serverConfig.ExcelPath, serverConfig.SheetName, dataList)
-	fmt.Printf("执行完成\n")
+	fmt.Println("")
+	fmt.Println("程序执行完成, 按任意键关闭, 请查看天气数据文件:", serverConfig.ExcelPath)
+	fmt.Println("")
+
+	fmt.Println("按任意键退出")
+	if err := keyboard.Open(); err != nil {
+		panic(err)
+	}
+	defer func() {
+		_ = keyboard.Close()
+	}()
+
+	_, _, err = keyboard.GetKey()
+	if err != nil {
+		panic(err)
+	}
 }
 
 func fetchData(url string) *WeatherData {

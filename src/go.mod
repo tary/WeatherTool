@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/BurntSushi/toml v1.3.2
-	github.com/tealeg/xlsx v1.0.5
+	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
 	github.com/xuri/excelize/v2 v2.8.1
 )
 
@@ -16,5 +16,6 @@ require (
 	github.com/xuri/nfp v0.0.0-20230919160717-d98342af3f05 // indirect
 	golang.org/x/crypto v0.19.0 // indirect
 	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )

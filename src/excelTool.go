@@ -37,8 +37,10 @@ func WriteExcel(fileName, sheetName string, dataList []*WeatherData) {
 			maxColIdxStr := getColumnIndexStr((dayIdx * 2) + 2)
 			//设置日期头
 			if cityIdx == 0 {
-				if dayIdx == 0 && len(sheetName) == 0 {
-					sheetName = day.Datetime + "更新"
+				if dayIdx == 0 {
+					if len(sheetName) == 0 {
+						sheetName = day.Datetime + "更新"
+					}
 					_, _ = xlFile.NewSheet(sheetName)
 				}
 
