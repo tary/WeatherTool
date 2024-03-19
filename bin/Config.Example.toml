@@ -1,6 +1,20 @@
-key = "EB9XXXXLKXXXXX45XXXXXXX"
-content = "json"
-unitGroup = "metric"
-apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
-excelPath = "WeatherResult.xlsx"
 sheetName = "" #工作表名称, 设置为空则自动使用日期命名
+excelPath = "WeatherResult.xlsx"
+
+# 高德 (4天)
+[[Provider]]
+id="amap"
+postfixName = "高德天气"
+key = "EB9XXXXLKXXXXX45XXXXXXX"
+apiUrl = "https://restapi.amap.com/v3/weather/weatherInfo"
+urlTemplate = "%s?extensions=all&output=json&key=%s&city=%%s"
+enable = true
+
+# visualcrossing (15天)
+[[Provider]]
+id="visualcrossing"
+postfixName = "VC"
+key = "EB9XXXXLKXXXXX45XXXXXXX"
+apiUrl = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+urlTemplate = "%sCN%%%%2C%%s?unitGroup=metric&contentType=json&key=%s"
+enable = true

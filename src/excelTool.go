@@ -1,13 +1,14 @@
 package main
 
 import (
+	"WeatherKeker/Provider"
 	"fmt"
 	elsxlib "github.com/xuri/excelize/v2"
 	"os"
 	"strconv"
 )
 
-func WriteExcel(fileName, sheetName string, dataList []*WeatherData) {
+func WriteExcel(fileName, sheetName, postFix string, dataList []*Provider.WeatherOfCity) {
 	xlFile, err := elsxlib.OpenFile(fileName)
 	if err != nil {
 		if os.IsNotExist(err) {
@@ -28,6 +29,7 @@ func WriteExcel(fileName, sheetName string, dataList []*WeatherData) {
 	const firstRowIndexStr = "1"
 	const secRowIndexStr = "2"
 	const cityColumnStr = "A"
+	hasCreateSheet := false
 
 	for cityIdx, cityData := range dataList {
 		//第一行日期, 第二行最低温/最高温
@@ -35,15 +37,23 @@ func WriteExcel(fileName, sheetName string, dataList []*WeatherData) {
 		for dayIdx, day := range cityData.Days {
 			minColIdxStr := getColumnIndexStr((dayIdx * 2) + 1)
 			maxColIdxStr := getColumnIndexStr((dayIdx * 2) + 2)
-			//设置日期头
-			if cityIdx == 0 {
-				if dayIdx == 0 {
-					if len(sheetName) == 0 {
-						sheetName = day.Datetime + "更新"
-					}
-					_, _ = xlFile.NewSheet(sheetName)
+
+			if !hasCreateSheet {
+				if len(sheetName) == 0 {
+					sheetName = day.Datetime + "更新"
 				}
 
+				sheetName = sheetName + "(" + postFix + ")"
+				_, _ = xlFile.NewSheet(sheetName)
+
+				sheetIdx, _ := xlFile.GetSheetIndex(sheetName)
+				xlFile.SetActiveSheet(sheetIdx)
+
+				hasCreateSheet = true
+			}
+
+			//设置日期头
+			if cityIdx == 0 {
 				minColStr := minColIdxStr + firstRowIndexStr
 				maxColStr := maxColIdxStr + firstRowIndexStr
 
@@ -67,12 +77,8 @@ func WriteExcel(fileName, sheetName string, dataList []*WeatherData) {
 			_ = xlFile.SetCellFloat(sheetName, maxDataColStr, float64(day.TempMax), 2, 32)
 		}
 
-		_ = xlFile.SetCellStr(sheetName, cityColumnStr+cityRowIndexStr, cityData.ResolvedAddress)
+		_ = xlFile.SetCellStr(sheetName, cityColumnStr+cityRowIndexStr, cityData.CityName)
 
-		if cityIdx == 0 {
-			sheetIdx, _ := xlFile.GetSheetIndex(sheetName)
-			xlFile.SetActiveSheet(sheetIdx)
-		}
 	}
 
 	if err := xlFile.SaveAs(fileName); err != nil {

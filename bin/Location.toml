@@ -1,88 +1,110 @@
 #北京市
 [[LocationList]]
 Location = "Beijing"
+Name = "北京市"
 
 #天津市
 [[LocationList]]
 Location = "Tianjin"
+Name = "天津市"
 
 #上海市
 [[LocationList]]
 Location = "Shanghai"
+Name = "上海市"
 
 #重庆市
 [[LocationList]]
 Location = "Chongqing"
+Name = "重庆市"
 
 #石家庄市
 [[LocationList]]
 Location = "Shijiazhuang"
+Name = "石家庄市"
 
 #太原市
 [[LocationList]]
 Location = "Taiyuan"
+Name = "太原市"
 
 #哈尔滨市
 [[LocationList]]
 Location = "Harbin"
+Name = "哈尔滨市"
 
 #长春市
 [[LocationList]]
 Location = "Changchun"
+Name = "长春市"
 
 #沈阳市
 [[LocationList]]
 Location = "Shenyang"
+Name = "沈阳市"
 
 #长沙市
 [[LocationList]]
 Location = "Changsha"
+Name = "长沙市"
 
 #南昌市
 [[LocationList]]
 Location = "Nanchang"
+Name = "南昌市"
 
 #南京市
 [[LocationList]]
 Location = "Nanjing"
+Name = "南京市"
 
 #合肥市
 [[LocationList]]
 Location = "Hefei"
+Name = "合肥市"
 
 #杭州市
 [[LocationList]]
 Location = "Hangzhou"
+Name = "杭州市"
 
 #福州市
 [[LocationList]]
 Location = "Fuzhou"
+Name = "福州市"
 
 #南宁市
 [[LocationList]]
 Location = "Nanning"
+Name = "南宁市"
 
 #广州市
 [[LocationList]]
 Location = "Guangzhou"
+Name = "广州市"
 
 #成都市
 [[LocationList]]
 Location = "Chengdu"
+Name = "成都市"
 
 #西安市
 [[LocationList]]
 Location = "Xian"
+Name = "西安市"
 
 #郑州市
 [[LocationList]]
 Location = "Zhengzhou"
+Name = "郑州市"
 
 #武汉市
 [[LocationList]]
 Location = "Wuhan"
+Name = "武汉市"
 
 #济南市
 [[LocationList]]
 Location = "Jinan"
+Name = "济南市"
 
